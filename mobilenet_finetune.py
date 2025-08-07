@@ -166,7 +166,6 @@ print(report)
 with open("classification_report.txt", "w") as f:
     f.write(report)
 
-# ذخیره‌ی مدل MobileNetV2 به صورت JSON و weights
 model_json = model.to_json()
 with open("mobilenetv2_finetuned_model.json", "w") as json_file:
     json_file.write(model_json)
