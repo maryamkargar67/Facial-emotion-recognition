@@ -6,14 +6,14 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 # ========================
-# 📁 مسیر فایل‌ها
+
 cnn_json = "facialemotionmodel.json"
 cnn_weights = "facialemotionmodel.weights.h5"
 mobilenet_json = "mobilenetv2_finetuned_model.json"
 mobilenet_weights = "mobilenetv2_finetuned_model.weights.h5"
 
 # ========================
-# 🧠 بررسی وجود فایل‌ها
+
 missing_files = []
 
 for f in [cnn_json, cnn_weights, mobilenet_json, mobilenet_weights]:
@@ -21,13 +21,13 @@ for f in [cnn_json, cnn_weights, mobilenet_json, mobilenet_weights]:
         missing_files.append(f)
 
 if missing_files:
-    print("❌ فایل‌های زیر پیدا نشدند:")
+    print("❌no file")
     for f in missing_files:
         print(" -", f)
-    raise FileNotFoundError("⛔ لطفاً مطمئن شوید فایل‌های بالا در مسیر اسکریپت وجود دارند.")
+    raise FileNotFoundError("⛔ please ensure the path is correct.")
 
 # ========================
-# ✅ لود مدل‌ها
+
 with open(cnn_json, "r") as f:
     cnn_model = model_from_json(f.read())
 cnn_model.load_weights(cnn_weights)
